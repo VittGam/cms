@@ -24,12 +24,11 @@ var url_root = "{{ url_root }}";
 
 {% if current_user is not None %}
         <script type="text/javascript">
+Utils.init({{ make_timestamp(timestamp) }},
+           {{ make_timestamp(current_phase_begin) }},
+           {{ make_timestamp(current_phase_end) }},
+           {{ actual_phase }});
 $(document).ready(function () {
-    Utils.init({{ make_timestamp(timestamp) }},
-               {{ make_timestamp(current_phase_begin) }},
-               {{ make_timestamp(current_phase_end) }},
-               {{ actual_phase }});
-
     Utils.update_time();
     setInterval(Utils.update_time, 1000);
     Utils.update_notifications();
