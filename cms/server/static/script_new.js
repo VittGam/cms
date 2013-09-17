@@ -7,10 +7,10 @@ var Utils = new function () {
 
     self.init = function (timestamp, current_phase_begin, current_phase_end, phase) {
         self.last_notification = timestamp;
-        self.server_timestamp = timestamp;
-        self.client_timestamp = $.now() / 1000;
-        self.current_phase_begin = current_phase_begin;
-        self.current_phase_end = current_phase_end;
+        self.server_timestamp = parseInt(timestamp, 10);
+        self.client_timestamp = parseInt((new Date).getTime() / 1000, 10);
+        self.current_phase_begin = parseInt(current_phase_begin, 10);
+        self.current_phase_end = parseInt(current_phase_end, 10);
         self.phase = phase;
         self.remaining_div = null;
         self.unread_count = 0;
@@ -136,7 +136,7 @@ var Utils = new function () {
     }
 
     self.update_time = function () {
-        var now = $.now() / 1000;
+        var now = parseInt((new Date).getTime() / 1000, 10);
 
         var server_time = now - self.client_timestamp + self.server_timestamp;
         $("#server_time").text(self.format_time(server_time));
