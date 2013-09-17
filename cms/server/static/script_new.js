@@ -12,7 +12,6 @@ var Utils = new function () {
         self.current_phase_begin = parseInt(current_phase_begin, 10);
         self.current_phase_end = parseInt(current_phase_end, 10);
         self.phase = phase;
-        self.remaining_div = null;
         self.unread_count = 0;
     };
 
