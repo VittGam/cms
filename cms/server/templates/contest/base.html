@@ -31,7 +31,6 @@ $(document).ready(function () {
                {{ make_timestamp(current_phase_end) }},
                {{ actual_phase }});
 
-    firstDate = new Date(); // FIXME very bad: global variable
     Utils.update_time();
     setInterval(Utils.update_time, 1000);
     Utils.update_notifications();
